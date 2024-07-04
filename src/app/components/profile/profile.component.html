@@ -1,0 +1,97 @@
+<div class="overlay" *ngIf="loading"><mat-spinner diameter="50"></mat-spinner></div>
+
+<div *ngIf="!loading" class="layout">
+    <div class="container">
+        <div class="row">
+            <div class='col-md-3'>
+                <mat-card appearance="outlined" class="custom-card">
+                    <div class="img">
+                        <img mat-card-lg-image src="../../../assets/images/avatar.jpg" />
+                    </div>
+                    <mat-card-content class="mt-2">
+                        <div class="py-1">Name: <span class="text-success">{{characterDetails?.name}}</span></div>
+                        <div>Birth Year: <span class="text-success">{{characterDetails?.birth_year}}</span></div>
+                        <div>Gender: <span class="text-success">{{characterDetails?.gender}}</span></div>
+                        <div>Height: <span class="text-success">{{characterDetails?.height}}</span></div>
+                        <div>Hair Color: <span class="text-success">{{characterDetails?.hair_color}}</span></div>
+                        <div>Eye Color: <span class="text-success">{{characterDetails?.eye_color}}</span></div>
+                        <div>Skin Color: <span class="text-success">{{characterDetails?.skin_color}}</span> </div>
+                        <div>Created On: <span class="text-success"><small>{{characterDetails?.created |
+                                    date:'short'}}</small></span>
+                        </div>
+                        <div>
+                            Edited On: <span class="text-success"><small>{{characterDetails?.edited |
+                                    date:'short'}}</small></span>
+                        </div>
+                        <p class="mt-3 h6">Planet: {{planet}}</p>
+                        <p class="h6">species: {{species}}</p>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+            <div class="col-md-9 my-3 my-md-0">
+                <mat-card appearance="outlined">
+                    <mat-card-content>
+                        <div class="my-3 mx-2">
+                            <div class="movies">
+                                <h2>Films</h2>
+                                <div *ngFor="let film of characterDetails?.filmsData">
+                                    <mat-card class="mx-md-5 my-3" appearance="outlined">
+                                        <mat-card-title>{{film?.title}}</mat-card-title>
+                                        <mat-card-content class="mt-3">
+                                          <div>Director: <span class="text-danger">{{film?.director}}</span></div>
+                                          <div>Producer: <span class="text-danger">{{film?.producer}}</span></div>
+                                          <div>Release Date: <span class="text-danger">{{film?.release_date | date:'short'}}</span></div>
+                                          <div>Episode: <span class="text-danger">{{film?.episode_id}}</span></div>
+                                          <div>Created Date: <span class="text-danger">{{film?.created| date:'short'}}</span></div>
+                                        </mat-card-content>
+                                      </mat-card>
+                                </div>
+                            </div>
+
+                            <div class="vehicles" *ngIf="characterDetails?.vehiclesData.length >0">
+                                <h2>Vehicles</h2>
+                                <div *ngFor="let vehicle of characterDetails?.vehiclesData">
+                                    <mat-card class="mx-md-5 my-3" appearance="outlined">
+                                        <mat-card-title>{{vehicle?.name}}</mat-card-title>
+                                        <mat-card-content class="mt-3">
+                                          <div>Model: <span class="text-danger">{{vehicle?.model}}</span></div>
+                                          <div>Passengers: <span class="text-danger">{{vehicle?.passengers}}</span></div>
+                                          <div>Vehicle Class: <span class="text-danger">{{vehicle?.vehicle_class}}</span></div>
+                                          <div>Maxatmosphering Speed: <span class="text-danger">{{vehicle?.max_atmosphering_speed}}</span></div>
+                                          <div>Manufacturer: <span class="text-danger">{{vehicle?.manufacturer}}</span></div>
+                                          <div>Consumables: <span class="text-danger">{{vehicle?.consumables}}</span></div>
+                                          <div>Cargo Capacity: <span class="text-danger">{{vehicle?.cargo_capacity}}</span></div>
+                                          <div>Consumables: <span class="text-danger">{{vehicle?.consumables}}</span></div>
+                                          <div>Cost in Credits: <span class="text-danger">{{vehicle?.cost_in_credits}}</span></div>
+                                        </mat-card-content>
+                                      </mat-card>
+                                </div>
+                            </div>
+
+                            <div class="startships" *ngIf="characterDetails?.starshipsData.length >0">
+                                <h2>Star Ships</h2>
+                                <div *ngFor="let startship of characterDetails?.starshipsData">
+                                    <mat-card class="mx-md-5 my-3" appearance="outlined">
+                                        <mat-card-title>{{startship?.name}}</mat-card-title>
+                                        <mat-card-content class="mt-3">
+                                          <div>Starship Class: <span class="text-danger">{{startship?.starship_class}}</span></div>
+                                          <div>Cargo Capacity: <span class="text-danger">{{startship?.cargo_capacity}}</span></div>
+                                          <div>Crew: <span class="text-danger">{{startship?.crew}}</span></div>
+                                          <div>Hyperdrive Rating: <span class="text-danger">{{startship?.hyperdrive_rating}}</span></div>
+                                          <div>Maxatmosphering Speed: <span class="text-danger">{{startship?.max_atmosphering_speed}}</span></div>
+                                          <div>Manufacturer: <span class="text-danger">{{startship?.manufacturer}}</span></div>
+                                          <div>Consumables: <span class="text-danger">{{startship?.consumables}}</span></div>
+                                          <div>Cost in Credits: <span class="text-danger">{{startship?.cost_in_credits}}</span></div>
+                                          <div>Passengers: <span class="text-danger">{{startship?.passengers}}</span></div>
+                                          <div>Model: <span class="text-danger">{{startship?.model}}</span></div>
+                                        </mat-card-content>
+                                      </mat-card>
+                                </div>
+                            </div>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>

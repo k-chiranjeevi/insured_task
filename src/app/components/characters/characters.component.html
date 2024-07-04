@@ -1,0 +1,32 @@
+<div class="overlay" *ngIf="loading"><mat-spinner diameter="50"></mat-spinner></div>
+
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
+        <ng-container matColumnDef="slNo">
+            <th mat-header-cell *matHeaderCellDef>SI No.</th>
+            <td mat-cell *matCellDef="let character"> {{character.slNo}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="characterName">
+            <th mat-header-cell *matHeaderCellDef> Character Name </th>
+            <td mat-cell *matCellDef="let character"> {{character.characterName}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="species">
+            <th mat-header-cell *matHeaderCellDef> Species </th>
+            <td mat-cell *matCellDef="let character"> {{character.species ? character.species : '...'}}
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="birth_year">
+            <th mat-header-cell *matHeaderCellDef> Birth Year </th>
+            <td mat-cell *matCellDef="let character"> {{character.birth_year}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr class="my-custom-row-class" mat-row *matRowDef="let character; columns: displayedColumns;" [routerLink]="'/characters/'+character.slNo"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5]" showFirstLastButtons aria-label="Select page of movies list">
+    </mat-paginator>
+</div>

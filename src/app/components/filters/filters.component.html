@@ -1,0 +1,59 @@
+<div>
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title> Filters</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <form [formGroup]="filtersForm">
+                <div class="movie-name">
+                    <mat-form-field>
+                        <mat-label>Movie Name</mat-label>
+                        <mat-select formControlName="filmsData">
+                            <mat-option>None</mat-option>
+                            <mat-option *ngFor="let option of moviesOptns" [value]="option">{{option}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="species-name">
+                    <mat-form-field>
+                        <mat-label>Species</mat-label>
+                        <mat-select formControlName="specicesData">
+                            <mat-option>None</mat-option>
+                            <mat-option *ngFor="let option of speciesOptns" [value]="option">{{option}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="vehicle-name">
+                    <mat-form-field>
+                        <mat-label>Vehicles</mat-label>
+                        <mat-select formControlName="vehiclesData">
+                            <mat-option>None</mat-option>
+                            <mat-option *ngFor="let option of vehiclesOptns" [value]="option">{{option}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="starships-name">
+                    <mat-form-field>
+                        <mat-label>StarShips</mat-label>
+                        <mat-select formControlName="starshipsData">
+                            <mat-option>None</mat-option>
+                            <mat-option *ngFor="let option of startshipsOptns" [value]="option">{{option}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="birth_year">
+                    <mat-form-field>
+                        <mat-label>Birth Year</mat-label>
+                        <mat-select formControlName="birth_year">
+                            <mat-option>None</mat-option>
+                            <mat-option *ngFor="let option of birth_year_opts" [value]="option">{{option}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </form>
+        </mat-card-content>
+        <mat-card-actions>
+            <button (click)="filter()" mat-raised-button color="primary">search</button>
+        </mat-card-actions>
+    </mat-card>
+</div>
